@@ -1,0 +1,95 @@
+{% load static %}
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+    <title>Landing Page</title>
+  </head>
+  <body>
+    
+    <section class="banner">
+      <div class="container">
+        <div class="banner-text">
+          <h1>Vaccine Distribution System</h1>
+          <p><strong>We have made the management of the vaccine easier for the government bodies and its subordinates handling the distribution of the Covid-19 vaccine </p>
+          <button onclick="location.href='{% url 'login' %}'">Log In</button>
+        </div>
+      </div>
+      {% comment %} <img class="banner-image" src="https://i.ibb.co/fFwKtx4/Pediatrician-giving-girl-injection-Vaccination-of-preteens-and-teens-older-children-immunization-pre.jpg" alt="monitoring" > {% endcomment %}
+    
+    <img class="banner-image" src="https://i.ibb.co/pL7tpPT/img-22-removebg-preview.png" alt="img-22-removebg-preview" alt="monitoring" >
+    </section>
+    
+    <div class="container">
+      <h2 class="text-center">Register below</h2><br>
+      <div class="row">
+        
+        
+        
+        
+        <div class="mb-30 col-md-6 col-lg-4">
+          <div class="card">
+          <img class="card-icon" src="https://image.ibb.co/evyiLm/backups.png" alt="monitoring" >
+          <h3 class="card-title">Register as Normal User</h3><br>
+          <p class="card-text">Register here for your vaccine and wait for the approval from the Goverment</p>
+          <button onclick="location.href='{% url 'enduser' %}'">Sign Up</button>
+          </div>
+        </div>
+        <div class="mb-30 col-md-6 col-lg-4">
+          <div class="card">
+          <img class="card-icon" src="https://image.ibb.co/g9bERR/snapshots.png" alt="snapshots" >
+          <h3 class="card-title">Register as Manufacturer</h3>
+          <p class="card-text">Register here as vaccine manufacturing center and wait for the approval from the Government.</p>
+          <button onclick="location.href='{% url 'manu' %}'">Sign Up</button>
+          </div>
+        </div>
+        <div class="mb-30 col-md-6 col-lg-4">
+          <div class="card">
+          <img class="card-icon" src="https://image.ibb.co/cFV8mR/monitoring.png" alt="monitoring" >
+          <h3 class="card-title">Register as Provider</h3>
+          <p class="card-text">Register here as vaccine provider and wait for the approval from the Government.</p>
+          <button onclick="location.href='{% url 'provider' %}'">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <ul>
+            
+            <li>Contributors</li>
+           
+            <a  href="https://www.linkedin.com/in/akshat-shah-biztech/"><li>Akshat Shah</li></a>
+            <a  href="https://www.linkedin.com/in/avitechsmith/"><li>Avi Shah</li></a>
+            <a  href="https://www.linkedin.com/in/shruti-agarwal-551238190/"><li>Shruti Agarwal</li></a>
+          </ul>
+        </div>
+        
+        
+      </div>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

@@ -1,0 +1,291 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+
+
+  <!-- Sidenav -->
+ 
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Search form -->
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+            <div class="form-group mb-0">
+              
+            </div>
+            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </form>
+          <!-- Navbar links -->
+          
+         
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Home</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="col-lg-6 col-5 text-right">
+              <a href="#" class="btn btn-sm btn-neutral" onclick="location.href='{% url 'logout' %}'">Logout</a>
+              <
+            </div>
+          </div>
+          <!-- Card stats -->
+          <div class="row">
+            
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Active Cases</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ cases1 }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                        <i class="ni ni-active-40"></i>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Recovered Cases</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ cases2 }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                        <i class="ni ni-chart-pie-35"></i>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Death Cases</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ cases3 }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                        <i class="ni ni-chart-bar-32"></i>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Status</h5>
+
+                      {% if request.user.is_verified == True  %}
+                      <span class="h2 font-weight-bold mb-0">Verified</span>
+               
+                      {% elif  request.user.is_verified == False and request.user.is_rejected == False %}
+                        <span class="h2 font-weight-bold mb-0">Pending</span>
+          
+          
+                      {% else %}
+                      <span class="h2 font-weight-bold mb-0">Rejected</span>
+                                
+                      {% endif %}
+
+                      
+                    </div>
+                    <div class="col-auto">
+                      
+                      <!-- If condition here is both false then pending , if reject true then rejected else verified -->
+                      <div class="icon icon-shape  rounded-circle shadow">
+                      {% if request.user.is_verified == True  %}
+                      <img src="https://i.ibb.co/fNQZSBc/verification.png" alt="" width="48px">
+               
+                      {% elif  request.user.is_verified == False and request.user.is_rejected == False %}
+                        <img src="https://i.ibb.co/mGJXpZ4/deadline.png" alt="" width="48px">
+          
+          
+                      {% else %}
+                      <img src="https://i.ibb.co/tHc1krf/rejected.png" alt="" width="48px">
+                                
+                      {% endif %}
+
+                      
+                      
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+        
+        <div class="col-xl-12">
+          <div class="card bg-default">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
+                  <h5 class="h3 text-white mb-0">Covid Rise in {{request.user.state}}</h5>
+                </div>
+                <div class="col">
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <!-- Chart -->
+              <div class="chart">
+                <!-- Chart wrapper -->
+                <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Coivd Precautions</h3>
+                </div>
+                <div class="col text-right">
+                  <a href="https://www.aarogyasetu.gov.in/" class="btn btn-sm btn-primary">See all</a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      1. Clean your hands often. Use soap and water, or an alcohol-based hand rub.
+                    </th>
+                    
+                    
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                     2. Maintain a safe distance from anyone who is coughing or sneezing.
+                    </th>
+                    
+                    
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      3. Wear a mask when physical distancing is not possible.
+                    </th>
+                    
+                    
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      4. Don’t touch your eyes, nose or mouth.
+                    </th>
+                    
+                    
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      5. Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze
+                    </th>
+                   
+                    
+                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <!-- Footer -->
+      <footer class="footer pt-0">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6">
+            <div class="copyright text-center  text-lg-left  text-muted">
+              &copy; 2020 <a href="#" class="font-weight-bold ml-1" target="_blank">Avi Shah</a>
+            </div>
+          </div>
+          
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  
+
+
+
+          {% endblock %}
